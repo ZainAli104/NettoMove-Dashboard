@@ -1,5 +1,4 @@
 import CompanyView from './CompanyView';
-import CompanyShow from './CompanyShow';
 import CompanyReg from './CompanyReg';
 
 export const companiesRouters = [
@@ -9,9 +8,9 @@ export const companiesRouters = [
         component: CompanyView
     },
     {
-        name: 'CompanyDetails',
-        path: '/company-details',
-        component: CompanyShow
+        name: 'CompanyDetail',
+        path: '/companyDetail',
+        component: () => import('./CompanyDetail')
     },
     {
         name: 'CompanyReg',

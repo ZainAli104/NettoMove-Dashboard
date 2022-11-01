@@ -64,7 +64,7 @@ export default {
       this.$router.push('/companyEdit?id=' + item.id);
     },
     view(item) {
-      console.log(item);
+      this.$router.push('/companyDetail?id=' + item.id);
     },
     async del(item) {
       let companyRef = doc(companies, item.id)

@@ -48,7 +48,7 @@
               </v-timeline-item>
               <v-timeline-item color="green" small>
                 <strong>35 Minuts ago</strong>
-                <div class="text-caption mb-2">A company has ban!</div>
+                <div class="text-caption mb-2">A company has deleted!</div>
               </v-timeline-item>
 
               <v-timeline-item color="indigo" small>
@@ -62,39 +62,13 @@
         </v-card>
       </v-col>
 
-      <v-col>
-        <v-card>
-          <data-table></data-table>
-        </v-card>
-      </v-col>
-
-      <!-- <v-col>
-        <v-card>
-          <v-data-table
-            caption="Recent Order list"
-            :headers="headers"
-            :items="desserts"
-            :items-per-page="5"
-            class="elevation-1"
-          >
-            <template v-slot:item.action="">
-              <v-btn color="success" outlined small shaped>View</v-btn>
-            </template>
-          </v-data-table>
-        </v-card>
-      </v-col> -->
     </v-row>
   </div>
 </template>
 
 <script>
-import DataTable from "../DataTable/DataTable";
-
 export default {
   name: "Dashboard",
-  components: {
-    DataTable,
-  },
   data() {
     return {
       activityLog: [
@@ -105,14 +79,14 @@ export default {
           color: "cyan lighten-3",
         },
         {
-          title: "Ban Companies",
-          amount: 3433,
+          title: "Deactivated Companies",
+          amount: 34,
           icon: "mdi-account-group-outline",
           color: "green darken-2",
         },
         {
           title: "Total Companies",
-          amount: 3433,
+          amount: 34,
           icon: "mdi-account-group-outline",
           color: "blue-grey darken-1",
         },
