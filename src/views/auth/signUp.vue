@@ -86,26 +86,6 @@
           <button v-if="!isLoading">Sign In</button>
           <base-spinner v-if="isLoading"></base-spinner>
         </form>
-
-        <!-- <form @submit.prevent="setPassword" v-else>
-        <h1>Change Password</h1>
-        <span>Use your email account</span>
-        <input type="email" placeholder="Email" v-model.trim="email.val" />
-        <p class="alert" v-if="!email.isValid">
-          Please enter valid email! (which also contains @ symbol )
-        </p>
-        <input
-          type="password"
-          placeholder="Password"
-          v-model.trim="password.val"
-          @blur="clearValidity('password')"
-          :class="{ invalid: !password.isValid }"
-        />
-        <p class="alert" v-if="!password.isValid">
-          Please enter valid pasword! (must be at least 6 characters long)
-        </p>
-        <button>Confirm Password</button>
-      </form> -->
       </div>
 
       <div class="overlay-container">
@@ -643,14 +623,19 @@ footer a {
 @media (max-width: 921px) {
   .container {
     width: 350px;
+    min-height: 540px;
   }
-
   .overlay-container {
     display: none;
   }
-
   .sign-in-container {
     width: 100%;
+  }
+  .sign-up-container {
+    width: 100%;
+  }
+  .container.right_panel_active .sign-up-container {
+    transform: translateX(0px);
   }
 }
 </style>
