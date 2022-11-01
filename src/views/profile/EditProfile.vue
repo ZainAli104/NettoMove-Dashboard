@@ -116,7 +116,6 @@
         <v-col class="d-flex">
           <v-col>
             <vue-tel-input-vuetify
-              :rules="[phone.valid]"
               type="number"
               color="green"
               outlined

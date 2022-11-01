@@ -9,30 +9,62 @@
       <v-col lg="7" cols="12">
         <v-alert dense text type="success" v-if="showPopUp"> Login Successfully! </v-alert>
         <v-row>
+          
           <v-col
-            lg="6"
             cols="12"
-            v-for="(item, index) in activityLog"
-            :key="index"
           >
-            <v-card elevation="2" class="rounded-lg">
+            <v-card elevation="2" class="rounded-lg sub_container">
               <v-card-text class="d-flex justify-space-between align-center">
                 <div>
-                  <strong>{{ item.title }}</strong> <br/>
-                  <!-- <span>Last 3 weeks</span> -->
+                  <strong>Active Companies</strong> <br/>
                 </div>
                 <v-avatar
                   size="60"
-                  :color="item.color"
+                  color="cyan lighten-3"
                   style="border: 3px solid #444"
                 >
-                  <span style="color: white">{{ item.amount }} +</span>
+                  <span style="color: white">{{ showActiveC }} +</span>
+                </v-avatar>
+              </v-card-text>
+              <v-card-actions class="d-flex justify-space-between">
+              </v-card-actions>
+            </v-card>
+
+            <v-card elevation="2" class="rounded-lg sub_container">
+              <v-card-text class="d-flex justify-space-between align-center">
+                <div>
+                  <strong>Deactivated Companies</strong> <br/>
+                </div>
+                <v-avatar
+                  size="60"
+                  color="green darken-2"
+                  style="border: 3px solid #444"
+                >
+                  <span style="color: white">{{ showDeActiveC }} +</span>
+                </v-avatar>
+              </v-card-text>
+              <v-card-actions class="d-flex justify-space-between">
+              </v-card-actions>
+            </v-card>
+            
+            <v-card elevation="2" class="rounded-lg sub_container">
+              <v-card-text class="d-flex justify-space-between align-center">
+                <div>
+                  <strong>Total Companies</strong> <br/>
+                </div>
+                <v-avatar
+                  size="60"
+                  color="blue-grey darken-1"
+                  style="border: 3px solid #444"
+                >
+                  <span style="color: white">{{ showTotalCompanies }} +</span>
                 </v-avatar>
               </v-card-text>
               <v-card-actions class="d-flex justify-space-between">
               </v-card-actions>
             </v-card>
           </v-col>
+
         </v-row>
       </v-col>
       <v-col cols="12" lg="5">
@@ -74,7 +106,7 @@ export default {
       activityLog: [
         {
           title: "Active Companies",
-          amount: 50,
+          amount: this.showActiveC,
           icon: "mdi-account",
           color: "cyan lighten-3",
         },
@@ -201,7 +233,16 @@ export default {
   computed: {
     showPopUp() {
       return this.$store.getters.showLogInPopUp
-    }
+    },
+    showActiveC() {
+      return this.$store.getters.showActiveCom
+    },
+    showDeActiveC() {
+      return this.$store.getters.showDeActiveCom
+    },
+    showTotalCompanies() {
+      return this.$store.getters.totalCompanies
+    },
   },
   methods: {
     changeRouter() {
@@ -237,5 +278,8 @@ export default {
   top: -33px;
   text-align: center;
   padding-top: 12px;
+}
+.sub_container {
+  margin-bottom: 15px;
 }
 </style>

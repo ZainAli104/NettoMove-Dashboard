@@ -96,6 +96,7 @@ export default {
             current.setHours(0, 0, 0, 0);
             return dayjs(current).isSameOrBefore(dayjs(date));
           });
+          this.$store.dispatch('getActiveCompanies', filterData.length);
 
           return filterData;
         } else {
@@ -108,6 +109,7 @@ export default {
             current.setHours(0, 0, 0, 0);
             return dayjs(current).isAfter(dayjs(date));
           });
+          this.$store.dispatch('getDeActiveCompanies', filterData.length);
 
           return filterData;
         }

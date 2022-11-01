@@ -9,7 +9,10 @@ export default new Vuex.Store({
     showLogInPopUp: false,
     firstName: '',
     lastName: '',
-    imgUrl: ''
+    imgUrl: '',
+    activeCompanies: null,
+    deActiveCompanies: null,
+    totalCompanies: null,
   },
   getters: {
     title(state) {
@@ -33,6 +36,15 @@ export default new Vuex.Store({
     },
     imgUrl(state) {
       return state.imgUrl
+    },
+    showActiveCom(state) {
+      return state.activeCompanies;
+    },
+    showDeActiveCom(state) {
+      return state.deActiveCompanies;
+    },
+    totalCompanies(state) {
+      return state.activeCompanies + state.deActiveCompanies;
     }
   },
   mutations: {
@@ -50,7 +62,13 @@ export default new Vuex.Store({
       state.lastName = payload.lastName;
       state.email = payload.email;
       state.imgUrl = payload.imgUrl
-    }
+    },
+    setActiveCompanies(state, payload) {
+      state.activeCompanies = payload
+    },
+    setDeActiveCompanies(state, payload) {
+      state.deActiveCompanies = payload
+    },
   },
   actions: {
       changeTitle(context, payload) {
@@ -61,7 +79,13 @@ export default new Vuex.Store({
       },
       changeInfo(context, payload) {
         context.commit('setInfo', payload)
-      }
+      },
+      getActiveCompanies(context, payload) {
+        context.commit('setActiveCompanies', payload)
+      },
+      getDeActiveCompanies(context, payload) {
+        context.commit('setDeActiveCompanies', payload)
+      },
   },
   modules: {
   }
